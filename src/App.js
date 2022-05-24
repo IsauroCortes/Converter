@@ -1,23 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import { marked } from "marked";
+import logo from "./logo.svg";
+import "./App.css";
 
 function App() {
+  const [input, setInput] = useState("# hello");
+  //const obj = { __html: marked('# hello') };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <nav className="navigation">
+        <img className="logo" src={logo} />
+      </nav>
+
+      <div className="container">
+
+        <div className='input-container'>
+          <textarea
+            className="input"
+            rows="10"
+            cols="80"
+            onChange={(e) => setInput(e.target.value)}
+            value={input}
+          />
+        </div>
+
+        <div
+          className="viewer"
+          dangerouslySetInnerHTML={{ __html: marked(input) }}
+        ></div>
+      </div>
     </div>
   );
 }
