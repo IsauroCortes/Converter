@@ -30,6 +30,9 @@
 }
 
 .input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
   width: 50%;
   height: 80%;
 }
@@ -49,4 +52,20 @@
   padding: 20px;
   width: 50%;
   height: 80%;
+  overflow-y: scroll; 
+}
+
+.uploadMarkdown {
+
+  padding: 20px;
+  width: 100%;
+  background: #61DBFB;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.uploadMarkdown:hover {
+  background-color: #2eb1d1;
 }
